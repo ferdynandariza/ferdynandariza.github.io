@@ -1,12 +1,10 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {ThemeService} from '../../services/theme.service';
-import {NgIf} from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'fnr-icon-button',
-  imports: [
-    NgIf
-  ],
+  imports: [NgIf],
   templateUrl: './icon-button.component.html',
 })
 export class IconButtonComponent {
@@ -20,7 +18,7 @@ export class IconButtonComponent {
     this.fnrIconButtonClicked.emit();
   }
 
-   protected isDarkTheme() {
+  protected isDarkTheme() {
     return this.themeService.getCurrentTheme() === 'dark';
-   }
+  }
 }

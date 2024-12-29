@@ -6,17 +6,11 @@ import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'fnr-navigation-bar',
-  imports: [
-    ButtonComponent,
-    LinkComponent,
-    IconButtonComponent,
-  ],
+  imports: [ButtonComponent, LinkComponent, IconButtonComponent],
   templateUrl: './navigation-bar.component.html',
 })
 export class NavigationBarComponent {
-
-  constructor(private readonly themeService: ThemeService) {
-  }
+  constructor(private readonly themeService: ThemeService) {}
 
   onClickThemeButton() {
     this.themeService.toggleTheme();

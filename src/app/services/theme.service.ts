@@ -1,19 +1,20 @@
-import {Injectable, Renderer2, RendererFactory2} from '@angular/core';
-import {PlatformService} from './platform.service';
-import {Theme} from '../models/theme.model';
+import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { PlatformService } from './platform.service';
+import { Theme } from '../models/theme.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
-
   private _renderer: Renderer2;
   private readonly THEME_KEY = 'fnr-theme';
 
   constructor(
     rendererFactory2: RendererFactory2,
     private readonly platformService: PlatformService,
-  ) { this._renderer = rendererFactory2.createRenderer(null, null);}
+  ) {
+    this._renderer = rendererFactory2.createRenderer(null, null);
+  }
 
   initTheme(): void {
     const storedTheme = this.getCurrentTheme();
@@ -39,6 +40,6 @@ export class ThemeService {
   }
 
   getCurrentTheme(): Theme {
-    return this.platformService.getLocalStorage(this.THEME_KEY) as Theme || 'light';
+    return (this.platformService.getLocalStorage(this.THEME_KEY) as Theme) || 'light';
   }
 }
