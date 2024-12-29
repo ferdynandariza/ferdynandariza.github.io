@@ -1,0 +1,11 @@
+<button
+  class="fnr-h-9 fnr-w-9 fnr-text-body-2-medium hover:fnr-bg-custom-100 active:fnr-bg-custom-200 fnr-p-1.5 fnr-rounded-xl"
+  (click)="onClickButton()"
+>
+  <ng-container *ngIf="isDarkTheme(); else lightTheme">
+    <img class="fnr-h-6 fnr-w-6" src="{{ fnrDarkIconButtonSrc }}" alt="icon-dark">
+  </ng-container>
+  <ng-template #lightTheme>
+    <img class="fnr-h-6 fnr-w-6" src="{{ fnrIconButtonSrc }}" alt="icon-light">
+  </ng-template>
+</button>
