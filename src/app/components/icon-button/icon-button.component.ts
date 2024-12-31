@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
-import { NgIf } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'fnr-icon-button',
-  imports: [NgIf],
+  imports: [NgIf, AsyncPipe],
   templateUrl: './icon-button.component.html',
 })
 export class IconButtonComponent {
-  @Input() fnrIconButtonSrc: string = '/assets/icon/icon-github-light-sm.svg';
+  @Input() fnrIconButtonSrc: string = '/assets/icon/light/icon-github-light-sm.svg';
   @Input() fnrDarkIconButtonSrc: string = '';
   @Output() fnrIconButtonClicked: EventEmitter<void> = new EventEmitter();
 
@@ -19,6 +19,6 @@ export class IconButtonComponent {
   }
 
   protected isDarkTheme() {
-    return this.themeService.getCurrentTheme() === 'dark';
+    return this.themeService.isDarkMode$;
   }
 }

@@ -1,13 +1,16 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { PlatformService } from './platform.service';
 import { Theme } from '../models/theme.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  private _renderer: Renderer2;
   private readonly THEME_KEY = 'fnr-theme';
+
+  private _renderer: Renderer2;
+  private _isDarkMode = new BehaviorSubject<boolean>(this.getCurrentTheme() === 'dark');
 
   constructor(
     rendererFactory2: RendererFactory2,
@@ -28,18 +31,26 @@ export class ThemeService {
   }
 
   private setTheme(theme: string): void {
-    const document = this.platformService.getDocument();
+    const document = this.platformService?.getDocument();
     if (!document) return;
 
     this.platformService.setLocalStorage(this.THEME_KEY, theme);
-    if (theme === 'dark') {
+    const isDark = theme === 'dark';
+    this._isDarkMode.next(isDark);
+    if (isDark) {
+      this._renderer.addClass(document?.documentElement, 'fnr-dark');
       this._renderer.addClass(document?.documentElement, 'dark');
     } else {
+      this._renderer.removeClass(document?.documentElement, 'fnr-dark');
       this._renderer.removeClass(document?.documentElement, 'dark');
     }
   }
 
   getCurrentTheme(): Theme {
-    return (this.platformService.getLocalStorage(this.THEME_KEY) as Theme) || 'light';
+    return (this.platformService?.getLocalStorage(this.THEME_KEY) as Theme) || 'light';
+  }
+
+  get isDarkMode$() {
+    return this._isDarkMode.asObservable();
   }
 }
