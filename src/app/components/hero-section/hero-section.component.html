@@ -1,0 +1,64 @@
+<fnr-section-container>
+  <div
+    class="fnr-flex fnr-flex-col fnr-gap-4 fnr-items-center sm:fnr-items-start sm:fnr-flex-row sm:fnr-gap-12 sm:fnr-justify-between"
+  >
+    <div class="fnr-order-2 sm:fnr-order-1 fnr-flex fnr-flex-col fnr-gap-12">
+      <div class="fnr-flex fnr-flex-col fnr-gap-2">
+        <p class="fnr-text-heading-h1">
+          {{ "Hello, I'm Ferdy 👋" }}
+        </p>
+        <p class="fnr-text-body-2-normal">
+          I'm a full stack developer (Angular & Springboot) with a focus on developing exceptional
+          digital experiences that are fast, accessible, visually appealing, and responsive. Even
+          though I have no IT background on my education, I still love it with my passion.
+        </p>
+      </div>
+      <div class="fnr-flex fnr-flex-col fnr-gap-2 fnr-text-body-2-normal">
+        <p class="fnr-flex fnr-flex-row fnr-gap-2">
+          <img
+            class="fnr-inline dark:fnr-hidden"
+            src="/assets/icon/light/location-light.svg"
+            alt="location"
+          />
+          <img
+            class="dark:fnr-inline fnr-hidden"
+            src="/assets/icon/dark/location-dark.svg"
+            alt="location"
+          />
+          <span> {{ 'Jakarta, Indonesia' }} </span>
+        </p>
+        <p class="fnr-flex fnr-flex-row fnr-gap-2">
+          <img class="fnr-inline-block" src="/assets/icon/green-dot.svg" alt="available" />
+          <span> {{ 'Available for new project' }} </span>
+        </p>
+      </div>
+      <div class="fnr-flex fnr-flex-row fnr-gap-1">
+        <fnr-icon-button
+          fnrIconButtonSrc="/assets/icon/light/linkedin-light.svg"
+          fnrDarkIconButtonSrc="/assets/icon/dark/linkedin-dark.svg"
+          (fnrIconButtonClicked)="onClickProfile('linkedin')"
+        />
+        <fnr-icon-button
+          fnrIconButtonSrc="/assets/icon/light/github-light.svg"
+          fnrDarkIconButtonSrc="/assets/icon/dark/github-dark.svg"
+          (fnrIconButtonClicked)="onClickProfile('github')"
+        />
+        <fnr-icon-button
+          fnrIconButtonSrc="/assets/icon/light/instagram-light.svg"
+          fnrDarkIconButtonSrc="/assets/icon/dark/instagram-dark.svg"
+          (fnrIconButtonClicked)="onClickProfile('instagram')"
+        />
+      </div>
+    </div>
+    <div class="fnr-relative fnr-order-1 sm:fnr-order-2">
+      <img
+        class="fnr-h-[280px] fnr-border-8 fnr-box-border fnr-border-custom-100 fnr-absolute"
+        src="/assets/images/profile-picture.jpeg"
+        alt="profile"
+      />
+      <div
+        class="fnr-w-[210px] fnr-h-[280px] fnr-mt-10 fnr-ml-10 fnr-border-8 fnr-box-border fnr-border-custom-100 fnr-bg-custom-200"
+      ></div>
+    </div>
+  </div>
+</fnr-section-container>

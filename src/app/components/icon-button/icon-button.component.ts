@@ -8,7 +8,7 @@ import { AsyncPipe, NgIf } from '@angular/common';
   templateUrl: './icon-button.component.html',
 })
 export class IconButtonComponent {
-  @Input() fnrIconButtonSrc: string = '/assets/icon/light/icon-github-light-sm.svg';
+  @Input() fnrIconButtonSrc: string = '/assets/icon/light/github-light.svg';
   @Input() fnrDarkIconButtonSrc: string = '';
   @Output() fnrIconButtonClicked: EventEmitter<void> = new EventEmitter();
 

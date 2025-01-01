@@ -1,13 +1,13 @@
 <div
-  class="fnr-flex fnr-relative fnr-place-items-start fnr-p-4 sm:fnr-px-12 md:fnr-px-16 lg:fnr-px-28 fnr-flex-row fnr-justify-between fnr-items-center"
+  class="fnr-flex fnr-relative fnr-place-items-start fnr-p-4 sm:fnr-px-12 md:fnr-px-16 lg:fnr-px-20 fnr-flex-row fnr-justify-between fnr-items-center"
 >
-  <div class="">
+  <div class="fnr-px-0 sm:fnr-px-8">
     <div
       class="fnr-h-8 fnr-bg-left fnr-bg-cover fnr-w-[calc(227/59*32px)] dark:fnr-bg-[url('/assets/images/logo-medium.svg')] fnr-bg-[url('/assets/images/logo-medium-dark.svg')] lg:fnr-h-9 lg:fnr-w-[calc(460/60*36px)] dark:lg:fnr-bg-[url('/assets/images/logo-large.svg')] lg:fnr-bg-[url('/assets/images/logo-large-dark.svg')]"
     ></div>
   </div>
 
-  <div class="fnr-hidden sm:fnr-block">
+  <div class="fnr-hidden sm:fnr-block sm:fnr-px-8">
     <ng-container [ngTemplateOutlet]="linkAndButtons" />
   </div>
   <div class="sm:fnr-hidden fnr-absolute fnr-top-4 fnr-right-4">
@@ -20,7 +20,7 @@
   </div>
   <div
     *ngIf="isExpandMenu"
-    class="fnr-flex fnr-flex-col fnr-gap-4 fnr-bg-custom-50 fnr-fixed fnr-right-0 fnr-top-0 fnr-bottom-0 fnr-w-80 fnr-border-l fnr-p-4 fnr-border-l-custom-100 sm:fnr-hidden"
+    class="fnr-flex fnr-drop-shadow-2xl fnr-flex-col fnr-gap-4 fnr-bg-custom-primary fnr-fixed fnr-z-10 fnr-right-0 fnr-top-0 fnr-bottom-0 fnr-w-80 fnr-border-l fnr-p-4 fnr-border-l-custom-50 sm:fnr-hidden [&_fnr-button>button]:fnr-w-full"
   >
     <div class="fnr-flex fnr-flex-row fnr-justify-between">
       <div
@@ -39,7 +39,7 @@
 <ng-template #linkAndButtons>
   <div class="fnr-flex fnr-flex-col fnr-place-items-start sm:fnr-flex-row sm:fnr-items-center">
     <div
-      class="fnr-flex fnr-flex-col fnr-gap-4 fnr-border-y fnr-border-r-0 fnr-border-custom-100 sm:fnr-flex-row sm:fnr-gap-6 sm:fnr-px-6 sm:fnr-border-r sm:fnr-border-y-0"
+      class="fnr-flex fnr-flex-col fnr-w-full fnr-gap-4 fnr-border-y fnr-border-r-0 fnr-border-custom-100 sm:fnr-flex-row sm:fnr-gap-6 sm:fnr-px-6 sm:fnr-border-r sm:fnr-border-y-0"
     >
       <fnr-link [fnrLinkText]="'About'"></fnr-link>
       <fnr-link [fnrLinkText]="'Work'"></fnr-link>
@@ -47,7 +47,7 @@
       <fnr-link [fnrLinkText]="'Contact'"></fnr-link>
     </div>
     <div
-      class="fnr-flex fnr-flex-col fnr-py-4 sm:fnr-flex-row sm:fnr-px-6 fnr-gap-4 fnr-place-items-start sm:fnr-items-center"
+      class="fnr-flex fnr-flex-col fnr-w-full fnr-py-4 sm:fnr-flex-row sm:fnr-px-6 fnr-gap-4 fnr-place-items-start sm:fnr-items-center"
     >
       <div class="fnr-flex fnr-flex-row fnr-justify-between fnr-items-center">
         <span
