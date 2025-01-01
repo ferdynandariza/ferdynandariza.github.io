@@ -10,10 +10,10 @@ export class ThemeService {
   private readonly THEME_KEY = 'fnr-theme';
 
   private _renderer: Renderer2;
-  private _isDarkMode = new BehaviorSubject<boolean>(this.getCurrentTheme() === 'dark');
+  private _isDarkMode = new BehaviorSubject<boolean>(this.isSystemPreferDarkMode());
 
   constructor(
-    rendererFactory2: RendererFactory2,
+    readonly rendererFactory2: RendererFactory2,
     private readonly platformService: PlatformService,
   ) {
     this._renderer = rendererFactory2.createRenderer(null, null);
@@ -30,7 +30,7 @@ export class ThemeService {
     this.setTheme(newTheme);
   }
 
-  private setTheme(theme: string): void {
+  private setTheme(theme: Theme): void {
     const document = this.platformService?.getDocument();
     if (!document) return;
 
@@ -47,10 +47,15 @@ export class ThemeService {
   }
 
   getCurrentTheme(): Theme {
-    return (this.platformService?.getLocalStorage(this.THEME_KEY) as Theme) || 'light';
+    const systemPreference = this.isSystemPreferDarkMode() ? 'dark' : 'light';
+    return (this.platformService?.getLocalStorage(this.THEME_KEY) as Theme) || systemPreference;
   }
 
   get isDarkMode$() {
     return this._isDarkMode.asObservable();
+  }
+
+  protected isSystemPreferDarkMode(): boolean {
+    return !!this.platformService?.getWindow()?.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 }
