@@ -7,10 +7,10 @@
     "build": "npm run config && ng build",
     "config": "node src/environments/set-env.ts",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "npm run config && ng test",
     "serve:ssr:portfolio": "node dist/portfolio/server/server.mjs",
     "build:prod": "npm run config && ng build --configuration production --base-href https://ferdynandariza.github.io/",
-    "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
+    "test:headless": "npm run config && ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
