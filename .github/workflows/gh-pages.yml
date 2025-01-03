@@ -20,15 +20,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Set environment variables
+        run: |
+          echo "GOOGLE_ANALYTICS_TRACKING_ID=${{ vars.GOOGLE_ANALYTICS_TRACKING_ID }}" > .env
+
       - name: Run tests
         run: npm run test:headless
 
       - name: Build
         run: npm run build:prod
-
-      - name: Set environment variables
-        run: |
-          echo "GOOGLE_ANALYTICS_TRACKING_ID=${{ vars.GOOGLE_ANALYTICS_TRACKING_ID }}" >> $GITHUB_ENV
 
       - name: Deploy
         if: success()
