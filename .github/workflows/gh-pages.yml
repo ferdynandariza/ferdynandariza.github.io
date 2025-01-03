@@ -24,9 +24,9 @@ jobs:
         run: npm run test:headless
 
       - name: Build
-        env:
-          GOOGLE_ANALYTICS_TRACKING_ID: ${{ vars.GOOGLE_ANALYTICS_TRACKING_ID }}
         run: npm run build:prod
+        env:
+          GOOGLE_ANALYTICS_TRACKING_ID: ${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}
 
       - name: Deploy
         if: success()
