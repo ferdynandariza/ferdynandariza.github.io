@@ -3,12 +3,10 @@ const setEnv = () => {
   const writeFile = fs.writeFile;
   const targetPath = './src/environments/environment.ts';
   const appVersion = require('../../package.json').version;
-  require('dotenv').config({
-    path: 'src/environments/.env',
-  });
+  require('dotenv').config();
 
   const envConfigFile = `export const environment = {
-  googleAnalyticsTrackingId: '${process.env['GOOGLE_ANALYTICS_TRACKING_ID']}',
+  googleAnalyticsTrackingId: '${process.env.GOOGLE_ANALYTICS_TRACKING_ID}',
   appVersion: '${appVersion}',
   production: true,
 };`;
