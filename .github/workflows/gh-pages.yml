@@ -20,6 +20,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Set environment variables
+        run: |
+          echo "GOOGLE_ANALYTICS_TRACKING_ID=${{ vars.GOOGLE_ANALYTICS_TRACKING_ID }}" > .env
+
       - name: Run tests
         run: npm run test:headless
 
