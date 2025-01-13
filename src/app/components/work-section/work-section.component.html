@@ -1,0 +1,36 @@
+<fnr-section-container
+  fnrCustomStyling="[&>div]:fnr-gap-6 [&>div]:sm:fnr-gap-12 fnr-bg-custom-50"
+  id="{{ NAVIGATION_MENU.WORK }}"
+>
+  <div class="fnr-flex fnr-flex-col fnr-gap-4 fnr-items-center">
+    <fnr-tag [fnrTagText]="'Work'" />
+    <p class="fnr-text-subtitle-normal fnr-text-custom-600 fnr-text-center">
+      Some of the noteworthy projects I have built:
+    </p>
+  </div>
+  <ng-container *ngFor="let work of works; index as index">
+    <div class="fnr-grid md:fnr-grid-cols-2">
+      <div class="fnr-p-12 fnr-bg-custom-200" [ngClass]="{ 'md:fnr-order-2': index % 2 == 1 }">
+        <img
+          class="fnr-h-max-96 fnr-object-scale-down"
+          src="{{ work.previewImage }}"
+          alt="{{ work.title }}"
+        />
+      </div>
+      <div class="fnr-p-12 fnr-flex fnr-flex-col fnr-gap-6 fnr-bg-custom-100">
+        <p class="fnr-text-subtitle-semibold">{{ work.title }}</p>
+        <p class="fnr-text-body-2-normal">{{ work.description }}</p>
+        <div class="fnr-flex fnr-w-full fnr-gap-2 fnr-flex-wrap">
+          <ng-container *ngFor="let stack of work.techStacks">
+            <fnr-tag [fnrTagText]="stack" />
+          </ng-container>
+        </div>
+        <fnr-icon-button
+          fnrIconButtonSrc="/assets/icon/light/icon-external-link.svg"
+          fnrDarkIconButtonSrc="/assets/icon/light/icon-external-link.svg"
+          (fnrIconButtonClicked)="onClickItemLink(work.link)"
+        />
+      </div>
+    </div>
+  </ng-container>
+</fnr-section-container>

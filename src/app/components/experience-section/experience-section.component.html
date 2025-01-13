@@ -1,0 +1,23 @@
+<fnr-section-container
+  fnrCustomStyling="[&>div]:fnr-gap-6 [&>div]:sm:fnr-gap-12"
+  id="{{ NAVIGATION_MENU.EXPERIENCE }}"
+>
+  <div class="fnr-flex fnr-flex-col fnr-gap-4 fnr-items-center">
+    <fnr-tag [fnrTagText]="'Experience'" />
+    <p class="fnr-text-subtitle-normal fnr-text-custom-600 fnr-text-center">
+      Here is a quick summary of my most recent experiences:
+    </p>
+  </div>
+  <ng-container *ngFor="let exp of experiences">
+    <div
+      class="fnr-bg-custom-100 fnr-flex fnr-flex-col fnr-gap-4 sm:fnr-gap-12 sm:fnr-flex-row sm:fnr-justify-between fnr-items-start fnr-p-8 fnr-w-full fnr-rounded-xl"
+    >
+      <img class="fnr-w-16 fnr-order-1" src="{{ exp.companyLogo }}" alt="{{ exp.companyName }}" />
+      <div class="sm:fnr-w-96 fnr-order-3 sm:fnr-order-2 fnr-flex fnr-flex-col fnr-gap-4">
+        <p class="fnr-text-subtitle-semibold">{{ exp.role }}</p>
+        <p class="fnr-text-body-2-normal">{{ exp.description }}</p>
+      </div>
+      <p class="fnr-text-body-2-normal fnr-order-2 sm:fnr-order-4">{{ exp.period }}</p>
+    </div>
+  </ng-container>
+</fnr-section-container>

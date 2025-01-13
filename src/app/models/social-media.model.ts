@@ -1,1 +1,1 @@
-export type SocialMedia = 'instagram' | 'linkedin' | 'github';
+export type SocialMedia = 'instagram' | 'linkedin' | 'github' | 'email' | 'phone';

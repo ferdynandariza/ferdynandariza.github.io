@@ -1,10 +1,17 @@
 <button
-  class="fnr-h-9 fnr-w-9 fnr-text-body-2-medium hover:fnr-bg-custom-100 active:fnr-bg-custom-200 fnr-p-1.5 fnr-rounded-xl"
+  class="fnr-text-body-2-medium hover:fnr-bg-custom-100 active:fnr-bg-custom-200 fnr-p-1.5 fnr-rounded-xl"
   (click)="onClickButton()"
+  [ngClass]="{
+    'fnr-h-9 fnr-w-9': fnrIconButtonSize === 'small',
+    'fnr-h-11 fnr-w-11': fnrIconButtonSize === 'large',
+  }"
 >
   <ng-container *ngIf="isDarkTheme() | async; else lightTheme">
     <img
-      class="fnr-h-6 fnr-w-6"
+      [ngClass]="{
+        'fnr-h-6 fnr-w-6': fnrIconButtonSize === 'small',
+        'fnr-h-8 fnr-w-8': fnrIconButtonSize === 'large',
+      }"
       src="{{ fnrDarkIconButtonSrc || fnrIconButtonSrc }}"
       alt="icon-dark"
     />

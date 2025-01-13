@@ -3,6 +3,7 @@ import { SectionContainerComponent } from '../section-container/section-containe
 import { IconButtonComponent } from '../icon-button/icon-button.component';
 import { SocialMedia } from '../../models/social-media.model';
 import { PlatformService } from '../../services/platform.service';
+import { CONTACT } from '../../constants/contact.constant';
 
 @Component({
   selector: 'fnr-hero-section',
@@ -18,13 +19,13 @@ export class HeroSectionComponent {
 
     switch (media) {
       case 'github':
-        window.open('https://www.github.com/ferdynandariza', '_blank');
+        window.open(CONTACT.GITHUB, '_blank');
         break;
       case 'linkedin':
-        window.open('https://www.linkedin.com/in/ferdynandariza', '_blank');
+        window.open(CONTACT.LINKEDIN, '_blank');
         break;
       case 'instagram':
-        window.open('https://www.instagram.com/ferdynandariza', '_blank');
+        window.open(CONTACT.INSTAGRAM, '_blank');
         break;
     }
   }
