@@ -56,8 +56,10 @@ module.exports = plugin(function ({ addBase, addUtilities, theme }) {
       },
     },
     '.text-subtitle': {
-      '@apply fnr-text-[18px] fnr-leading-[28px] fnr-font-[400] md:fnr-text-[20px] md:fnr-leading-[28px]':
-        {},
+      '@apply fnr-text-[18px] fnr-leading-[28px] md:fnr-text-[20px] md:fnr-leading-[28px]': {},
+      '&-normal': {
+        '@apply fnr-text-subtitle fnr-font-[400]': {},
+      },
       '&-semibold': {
         '@apply fnr-text-subtitle fnr-font-[600]': {},
       },

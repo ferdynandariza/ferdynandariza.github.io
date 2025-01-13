@@ -12,7 +12,7 @@ export class GoogleAnalyticsService {
     const document = this.platformService.getDocument();
     if (!document) return;
 
-    const trackingId = environment.googleAnalyticsTrackingId;
+    const trackingId = environment.googleAnalyticsTrackingId || 'G-M2X6DD2MTR';
     if (!trackingId) {
       console.error('Google Analytics tracking ID is not set!');
       return;

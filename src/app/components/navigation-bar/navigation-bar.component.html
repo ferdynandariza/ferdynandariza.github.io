@@ -41,10 +41,9 @@
     <div
       class="fnr-flex fnr-flex-col fnr-w-full fnr-gap-4 fnr-border-y fnr-border-r-0 fnr-border-custom-100 sm:fnr-flex-row sm:fnr-gap-6 sm:fnr-px-6 sm:fnr-border-r sm:fnr-border-y-0"
     >
-      <fnr-link [fnrLinkText]="'About'"></fnr-link>
-      <fnr-link [fnrLinkText]="'Work'"></fnr-link>
-      <fnr-link [fnrLinkText]="'Testimonials'"></fnr-link>
-      <fnr-link [fnrLinkText]="'Contact'"></fnr-link>
+      <ng-container *ngFor="let section of SECTIONS">
+        <fnr-link [fnrLinkText]="section.label" (fnrLinkClicked)="onClickLinkMenu(section.id)" />
+      </ng-container>
     </div>
     <div
       class="fnr-flex fnr-flex-col fnr-w-full fnr-py-4 sm:fnr-flex-row sm:fnr-px-6 fnr-gap-4 fnr-place-items-start sm:fnr-items-center"

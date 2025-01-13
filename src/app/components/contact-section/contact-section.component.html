@@ -1,0 +1,66 @@
+<fnr-section-container
+  fnrCustomStyling="[&>div]:fnr-gap-6 [&>div]:sm:fnr-gap-12"
+  id="{{ NAVIGATION_MENU.CONTACT }}"
+>
+  <div class="fnr-flex fnr-flex-col fnr-gap-4 fnr-items-center">
+    <fnr-tag [fnrTagText]="'Get in touch'" />
+    <p class="fnr-text-subtitle-normal fnr-text-custom-600 fnr-text-center">
+      What’s next? Feel free to reach out to me if you're looking for a developer, have a query, or
+      simply want to connect.
+    </p>
+  </div>
+  <div class="fnr-flex fnr-flex-col fnr-gap-4 fnr-items-center">
+    <div class="fnr-flex fnr-gap-5">
+      <fnr-icon-button
+        fnrIconButtonSrc="/assets/icon/light/icon-inbox.svg"
+        fnrDarkIconButtonSrc="/assets/icon/dark/icon-inbox.svg"
+        fnrIconButtonSize="large"
+        (fnrIconButtonClicked)="onClickProfile('email')"
+      />
+      <h2 class="fnr-text-heading-h2">
+        {{ CONTACT.EMAIL }}
+      </h2>
+      <fnr-icon-button
+        fnrIconButtonSrc="/assets/icon/light/icon-copy.svg"
+        fnrDarkIconButtonSrc="/assets/icon/dark/icon-copy.svg"
+        fnrIconButtonSize="large"
+        (fnrIconButtonClicked)="onClickCopy(CONTACT.EMAIL)"
+      />
+    </div>
+    <div class="fnr-flex fnr-gap-5">
+      <fnr-icon-button
+        fnrIconButtonSrc="/assets/icon/light/icon-phone.svg"
+        fnrDarkIconButtonSrc="/assets/icon/dark/icon-phone.svg"
+        fnrIconButtonSize="large"
+        (fnrIconButtonClicked)="onClickProfile('phone')"
+      />
+      <h2 class="fnr-text-heading-h2">{{ CONTACT.PHONE }}</h2>
+      <fnr-icon-button
+        fnrIconButtonSrc="/assets/icon/light/icon-copy.svg"
+        fnrDarkIconButtonSrc="/assets/icon/dark/icon-copy.svg"
+        fnrIconButtonSize="large"
+        (fnrIconButtonClicked)="onClickCopy(CONTACT.PHONE)"
+      />
+    </div>
+  </div>
+  <div class="fnr-flex fnr-flex-col fnr-gap-2 fnr-items-center">
+    <p class="fnr-text-body-2-normal">You may also find me on these platforms!</p>
+    <div class="fnr-flex fnr-flex-row fnr-gap-1">
+      <fnr-icon-button
+        fnrIconButtonSrc="/assets/icon/light/linkedin-light.svg"
+        fnrDarkIconButtonSrc="/assets/icon/dark/linkedin-dark.svg"
+        (fnrIconButtonClicked)="onClickProfile('linkedin')"
+      />
+      <fnr-icon-button
+        fnrIconButtonSrc="/assets/icon/light/github-light.svg"
+        fnrDarkIconButtonSrc="/assets/icon/dark/github-dark.svg"
+        (fnrIconButtonClicked)="onClickProfile('github')"
+      />
+      <fnr-icon-button
+        fnrIconButtonSrc="/assets/icon/light/instagram-light.svg"
+        fnrDarkIconButtonSrc="/assets/icon/dark/instagram-dark.svg"
+        (fnrIconButtonClicked)="onClickProfile('instagram')"
+      />
+    </div>
+  </div>
+</fnr-section-container>

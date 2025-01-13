@@ -1,0 +1,23 @@
+<fnr-section-container
+  fnrCustomStyling="fnr-bg-custom-50 [&>div]:fnr-gap-6 [&>div]:sm:fnr-gap-12"
+  id="{{ NAVIGATION_MENU.SKILLS }}"
+>
+  <div class="fnr-flex fnr-flex-col fnr-gap-4 fnr-items-center">
+    <fnr-tag [fnrTagText]="'Skills'" />
+    <p class="fnr-text-subtitle-normal fnr-text-custom-600">
+      The skills, tools and technologies I am really good at:
+    </p>
+  </div>
+  <div
+    class="fnr-container fnr-grid fnr-justify-between fnr-place-items-center fnr-grid-cols-3 sm:fnr-grid-cols-4 md:fnr-grid-cols-8 fnr-gap-12"
+  >
+    <ng-container *ngFor="let tech of techs">
+      <div
+        class="fnr-flex fnr-flex-col fnr-w-20 fnr-h-[100px] fnr-place-items-center fnr-place-content-between fnr-content-between"
+      >
+        <img class="fnr-h-16" src="{{ tech.icon }}" alt="{{ tech.subtitle }}" />
+        <span class="fnr-text-body-1 fnr-text-custom-600 fnr-text-center">{{ tech.subtitle }}</span>
+      </div>
+    </ng-container>
+  </div>
+</fnr-section-container>
